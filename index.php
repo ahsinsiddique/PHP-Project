@@ -49,7 +49,39 @@
 // echo person::AVG_AGE;
 echo $detail->getFullName();
 echo Author::authorCenturyPopular();
-echo "Ahsabn";
+echo 'welcome to GOA Saddiq';
+
+//**********************************
+$dbPassword="asif211";
+$dbUserName="php_project";
+$dbServer="localhost";
+$dbName="php_project";
+
+$connection=new mysqli($dbServer,$dbUserName,$dbPassword,$dbName);
+if($connection->connect_errno)
+{
+    exit("Database has encoutered an error: ".$connection->connect_error);
+}
+
+
+//$query= "DELETE FROM php_project WHERE id = 2";
+//$query="UPDATE php_project SET penName='L.M. Mongomery' WHERE id=2 " ;
+$query="INSERT INTO php_project (firstName,lastName,penName) VALUES ('Kashif','Saddiq','dollar')";
+$resultobj=$connection->query($query);
+
+//Select DATA from Data base
+if($resultobj->num_rows>0)
+{
+    while ($getdata=$resultobj->fetch_assoc())
+    {
+        echo 'Author: '.$resultobj['firstName'].PHP_EOL; ;
+    }
+    
+}
+
+
+
+$connection->close();
  
   ?>
 
