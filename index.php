@@ -86,8 +86,6 @@ $connection->close();
  
   ?>
 
-
- 
 <!DOCTYPE html>
 <html>
     <head>
@@ -96,11 +94,41 @@ $connection->close();
         <title>PHP websites</title>
     </head>
     <body>
-        <h1 class="head1">Welcome to the PHP Development Websites</h1>
-        <h1>You will be familiar with the queries by this site: </h1>
-        First Name: <input type="text">
-         Last Name: <input type="text">
-          Pen Name:  <input type="text">
-           
+        <div id="Header">
+        <img class="shekspear-img" src="shakespeare.jpg" alt="">
+        <h2>Join Our Literature <br> Mailing List</h2>
+        </div>
+        <div id="Body">
+            <form method="post" action="final.php">
+                <div>
+                    <label>Favorite Author: </label>
+                    <select name="author">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="multiple">
+                    <label>Favorite Century:</label>
+                    <div>
+                    17th Century <input type="checkbox" name="century[]" value="17th">
+                    </div>
+                    18th Century <input type="checkbox" name="century[]" value="18th"><br>
+                    19th Century <input type="checkbox" name="century[]" value="19th">
+                </div>
+                <div>
+                    <label>Comments:</label>
+                    <textarea name="comments"></textarea>
+                </div>
+                 <div>
+                    <label>Name:</label>
+                    <input type="text" name="name"/>
+                </div>
+                 <div>
+                    <label>E-mail:</label>
+                    <input type="text" name="email"/>
+                </div>
+                
+                
+        </div>
+                
     </body>
 </html>
