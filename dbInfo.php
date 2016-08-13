@@ -9,3 +9,6 @@ if($connection->connect_errno)
 {
     exit("Database has encoutered an error:".$connection->connect_error);
 }
+
+
+?>

@@ -1,22 +1,27 @@
  <?php
 require './dbInfo.php'; 
+require './include.php'; 
+
 
 //**********************************
-
-
-
-//$query= "DELETE FROM php_project WHERE id = 2";
-//$query="UPDATE php_project SET penName='L.M. Mongomery' WHERE id=2 " ;
-//$query="INSERT INTO php_project (id,firstName,lastName,penName) VALUES (5,'Aslam','john','mongomery')";
-//$query="SELECT firsName,lastName,PenName FROM php_project ORDOR BY firstName";
 $query='SELECT id,firstName,lastName FROM php_project ORDER BY firstName';
 $resultObj=$connection->query($query);
-
-
+if(count($_POST)>0)
+{
+if ($_POST['email']!="")
+{
+   // $_SESSION['formWasPosted']='yes';
+    $_SESSION['formPostData']=$_POST;
+    header('Location:final.php');
+}
+ else 
+     { 
+         $emailError="validation"; 
+     }
+}
 
 //$resultObj->close();
-//$connection->close();
- 
+//$connection->close(); 
   ?>
 
 <!DOCTYPE html>
@@ -32,7 +37,7 @@ $resultObj=$connection->query($query);
         <h2>Join Our Literature <br> Mailing List</h2>
         </div>
         <div id="Body">
-            <form method="post" action="final.php">
+            <form method="POST" action="final.php">
                 <div>
                     <label>Favorite Author: </label>
                     <select name="author">
@@ -44,10 +49,10 @@ $resultObj=$connection->query($query);
                 <div class="multiple">
                     <label>Favorite Century:</label>
                     <div>
-                    17th Century <input type="checkbox" name="century[]" value="17th">
+                    17th Century <input type="checkbox" name="century" value="17th">
                     </div>
-                    18th Century <input type="checkbox" name="century[]" value="18th"><br>
-                    19th Century <input type="checkbox" name="century[]" value="19th">
+                    18th Century <input type="checkbox" name="century" value="18th"><br>
+                    19th Century <input type="checkbox" name="century" value="19th">
                 </div>
                 <div>
                     <label>Comments:</label>
@@ -57,7 +62,7 @@ $resultObj=$connection->query($query);
                     <label>Name:</label>
                     <input type="text" name="name"/>
                 </div>
-                 <div>
+                <div class="<?=$emailError?>">
                     <label>E-mail:</label>
                     <input type="text" name="email"/>
                 </div>
