@@ -10,7 +10,7 @@
 }
 
 *{
-    padding: 0;margin: 0;font-family: sans-serif;font-size: 18px;color:white;background: gray;
+    padding: 0;margin: 0;font-family: sans-serif;font-size: 18px;color:black;background: gray;
 }
 
 h2
@@ -26,7 +26,7 @@ div
 }
 span{width: 500px;display: block;float: left;}
 
-input,textArea,select{width: 400px; border: solid 3px #555;padding: 5px;background: silver;}
+input,textArea,select{width: 400px; border: solid 3px #555;padding: 5px;background: white;}
 
 img
 {
@@ -39,3 +39,11 @@ img
  }
  .validation label{color: #CC0000;}
  .validation input{border-color: #CC0000;}
+ 
+ .button-class
+ {
+        width: 500px;
+    color: chartreuse;
+    background-color: gray;
+    font-size: 50px;
+ }
